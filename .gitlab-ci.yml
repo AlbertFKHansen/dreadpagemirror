@@ -1,0 +1,11 @@
+pages:
+  stage: deploy
+  script:
+    - echo "Deploying"
+    - mkdir public
+    - cp -r .public/* public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
