@@ -82,7 +82,6 @@
         .footer-section p {
             margin: 5px 0;
         }
-
     </style>
 </head>
 
@@ -92,9 +91,9 @@
     <nav>
         <a href="#dataset-overview">Dataset Overview</a>
         <a href="#network-analysis">Network Analysis</a>
-        <a href="#text-analysis" style="margin-right: 30px;">Text Analysis</a>
+        <a href="#text-analysis">Text Analysis</a>
         <a href="data.zip">Download Dataset</a>
-        <a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=explainer.ipynb">Explainer Notebook</a>
+        <a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=.public/explainer.ipynb">Explainer Notebook</a>
         <a href="https://gitlab.gbar.dtu.dk/s224234/socsciproject">Repository</a>
     </nav>
 
@@ -108,28 +107,47 @@
         </p>
     </header>
 
+    <!-- Introduction -->
+    <section id="dataset-overview">
+        <h2>Introduction</h2>
+        <div class="introduction">
+            <p>The puropse of this project is to analyze and understand.... MERE HER</p>
+            
+            <p>For a deeper dive into the technical details of the analysis, check out the explainer notebook. This notebook contains the code, tools used, and data processing steps. The online version automatically creates an invironment with all dependencies installed.</p>
+            <ul>
+                <li><a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=.public/explainer.ipynb">View Explainer Notebook</a></li>
+            </ul>
+            <p>If you would like to explore the dataset yourself, you can download the data files with the explainer.ipynb and run the code on your own system.</p>
+            <ul>
+                <li><a href="data.zip" download>Download ZIP</a></li>
+            </ul>
+        </div>
+    </section>
+
+
     <!-- Dataset Overview Section -->
     <section id="dataset-overview">
         <h2>Dataset Overview</h2>
-        <p>This section provides details about the dataset used in this project, including key attributes and the reasons for its selection.</p>
-        
+        <p>The dataset consists of sevearal files with lists of "urls" and post ids and user ids. You can view these by downlorading the dataset and understand why it was done this way by viewing or downloading dhe explainer notebook. All of the information can be boiled down to 2 files.</p>
+        <p>It took several hours to collect the data, primarily to avoid the webscraper to be detected as a bot. And when we were detected we had to "lay low" for a few hours before scraping again. So the data was collected over the span of three days.</p>
         <!-- Dataset Details -->
         <div class="dataset-details">
-            <h3>Dataset Details</h3>
+            <h4>posts_data_unique.csv</h4>
             <ul>
-                <li><strong>Source:</strong> [Dataset Source]</li>
-                <li><strong>Size:</strong> [Number of Records]</li>
-                <li><strong>Variables:</strong> [Key Variables]</li>
-                <li><strong>Timeframe:</strong> [Date Range]</li>
+                <li><strong>Description:</strong> This is the file containing the entirety of posts and comments from DarkNetMarkets</li>
+                <li><strong>Size:</strong> 64.3 MB</li>
+                <li><strong>Variables:</strong> type, id, parent_id, title, author, content</li>
+                <li><strong>Date:</strong> 19.4.2025 - 21.4.2025</li>
             </ul>
         </div>
-
-        <!-- Visualizations of Key Data Insights -->
-        <div class="visualizations">
-            <h3>Key Insights</h3>
-            <p>Here are some of the key insights derived from the dataset. We visualize important trends and patterns that emerged.</p>
-            <img src="path/to/your/visualization1.png" alt="Visualization 1" class="dataset-visualization">
-            <img src="path/to/your/visualization2.png" alt="Visualization 2" class="dataset-visualization">
+        <div class="dataset-details">
+            <h4>links_data.csv</h4>
+            <ul>
+                <li><strong>Description:</strong> This file is the scraped content of the direct link of all the unique links found in posts_data_unique's content</li>
+                <li><strong>Size:</strong> 135.4 KB</li>
+                <li><strong>Variables:</strong> address, alias, content</li>
+                <li><strong>Date:</strong> 2.5.2025</li>
+            </ul>
         </div>
     </section>
 
@@ -180,23 +198,10 @@
         </div>
     </section>
 
-    <!-- Download Dataset Section -->
-    <section id="download-dataset">
-        <h2>Download the Dataset</h2>
-        <p>If you would like to explore the dataset yourself, you can download the data files here.</p>
-        <ul>
-            <li><a href="data.zip" download>Download ZIP</a></li>
-        </ul>
-    </section>
 
-    <!-- Explainer Notebook Section -->
-    <section id="explainer-notebook">
-        <h2>Behind the Scenes: Explainer Notebook</h2>
-        <p>For a deeper dive into the technical details of the analysis, check out the explainer notebook. This notebook contains the code, tools used, and data processing steps.</p>
-        <ul>
-            <li><a href="https://nbviewer.jupyter.org/url/your-notebook-url">View Explainer Notebook</a></li>
-        </ul>
-    </section>
+
+
+    
 
     <!-- Footer Section -->
     <footer>
