@@ -90,8 +90,8 @@
     <!-- Navigation Bar -->
     <nav>
         <a href="#dataset-overview">Dataset Overview</a>
-        <a href="#network-analysis">Network Analysis</a>
-        <a href="#text-analysis">Text Analysis</a>
+        <a href="#network-analysis1">User-to-User Network</a>
+        <a href="#network-analysis2">User-to-Website Network</a>
         <a href="data.zip">Download Dataset</a>
         <a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=explainer_env/explainer.ipynb">Explainer Notebook</a>
         <a href="https://gitlab.gbar.dtu.dk/s224234/socsciproject">Repository</a>
@@ -101,9 +101,9 @@
     <header>
         <h1>A CSS study on <span style="color: purple; font-weight: bold;">Dread</span> - The Dark Web Reddit</h1>
         <p>
-            This page provides an insight into the the analysis of the subforum 
-            <span style="color: purple; font-weight: bold;">DarkNetMarkets</span> on the world's most popular dark web forum 
-            <span style="color: purple; font-weight: bold;">Dread</span>.
+            This page provides an insight through network and text analyses of the subforum 
+            <span style="color: purple; font-weight: bold;">DarkNetMarkets</span> on the world's most popular Dark Web forum 
+            <span style="color: purple; font-weight: bold;">Dread</span>
         </p>
     </header>
 
@@ -111,16 +111,18 @@
     <section id="dataset-overview">
         <h2>Introduction</h2>
         <div class="introduction">
-            <p>The puropse of this project is to analyze and understand.... MERE HER</p>
+            <p>The purpose of this project is to analyze and understand.... MERE HER</p>
             
-            <p>For a deeper dive into the technical details of the analysis, check out the explainer notebook. This notebook contains the code, tools used, and data processing steps. The online version automatically creates an invironment with all dependencies installed.</p>
+            <p>For a deep dive into the technical details of the analysis, check out the explainer notebook. This notebook contains the code, the tools applied and the data processing steps. The online version automatically creates an environment with all dependencies installed.</p>
             <ul>
                 <li><a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=explainer_env/explainer.ipynb">View Explainer Notebook</a></li>
             </ul>
-            <p>If you would like to explore the dataset yourself, you can download the data files with the explainer.ipynb and run the code on your own system.</p>
+            <p>If you would like to explore the dataset yourself, the data files can be downloaded with the explainer.ipynb, and you can then run the code on your own system.</p>
             <ul>
                 <li><a href="data.zip" download>Download ZIP</a></li>
             </ul>
+            <p> The subforums users utilize many abbreviations and concepts specific to the context. Therefore, there is provided a glossary at the bottom of this page. </p>
+This glossary provides definitions and explanations of terms and abbreviations used in the context of the Dread forum and Dark Web markets.
         </div>
     </section>
 
@@ -128,7 +130,7 @@
     <!-- Dataset Overview Section -->
     <section id="dataset-overview">
         <h2>Dataset Overview</h2>
-        <p>The dataset consists of sevearal files with lists of "urls" and post ids and user ids. You can view these by downlorading the dataset and understand why it was done this way by viewing or downloading dhe explainer notebook. All of the information can be boiled down to 2 files.</p>
+        <p>The dataset consists of several files with lists of "urls" and post ids and user ids. You can view these by downlorading the dataset and understand why it was done this way by viewing or downloading dhe explainer notebook. All of the information can be boiled down to 2 files.</p>
         <p>It took several hours to collect the data, primarily to avoid the webscraper to be detected as a bot. And when we were detected we had to "lay low" for a few hours before scraping again. So the data was collected over the span of three days.</p>
         <!-- Dataset Details -->
         <div class="dataset-details">
@@ -151,9 +153,9 @@
         </div>
     </section>
 
-    <!-- Network Analysis Section -->
-    <section id="network-analysis">
-        <h2>Network Analysis</h2>
+    <!-- User-to-user Network Analysis Section -->
+    <section id="network-analysis1">
+        <h2>User-to-User Network Analysis</h2>
         <p>This section covers the network analysis conducted on the dataset, including the relationships and structure identified through the data.</p>
         
         <!-- Network Visualization -->
@@ -173,33 +175,66 @@
                 <li><strong>Connected Components:</strong> [Value]</li>
             </ul>
         </div>
-    </section>
 
-    <!-- Text Analysis Section -->
-    <section id="text-analysis">
-        <h2>Text Analysis</h2>
-        <p>This section presents the text analysis performed on the dataset, including sentiment analysis and topic modeling results.</p>
-        
-        <!-- Word Cloud Visualization -->
-        <div class="text-visualizations">
-            <h3>Word Cloud</h3>
-            <p>The word cloud below shows the most frequent terms in the dataset.</p>
-            <img src="path/to/word-cloud.png" alt="Word Cloud" class="word-cloud">
+        <!-- Text Analysis -->
+        <div class="text-analysis">
+            <h3>Text Analysis</h3>
+            <p>This section provides insights into the text analysis performed on the network....</p>
         </div>
 
-        <!-- Text Analysis Insights -->
-        <div class="text-metrics">
-            <h3>Text Insights</h3>
+    </section>
+
+    <!-- User-to-Website Analysis Section -->
+    <section id="network-analysis2">
+        <h2>User-to-Website Analysis</h2>
+        <p>This section covers the network analysis conducted on the dataset, including the relationships and structure identified through the data.</p>
+        
+        <!-- Network Visualization -->
+        <div class="network-visualization">
+            <h3>Network Visualization</h3>
+            <p>This visualization represents the connections and relationships within the dataset, illustrating the structure of the network.</p>
+            <img src="path/to/network-graph.png" alt="Network Graph" class="network-image">
+        </div>
+
+        <!-- Network Metrics -->
+        <div class="network-metrics">
+            <h3>Network Metrics</h3>
             <ul>
-                <li><strong>Top Keywords:</strong> [List of Keywords]</li>
-                <li><strong>Sentiment Analysis:</strong> [Results Summary]</li>
-                <li><strong>Topic Modeling:</strong> [Topics and Percentages]</li>
+                <li><strong>Average Degree:</strong> [Value]</li>
+                <li><strong>Clustering Coefficient:</strong> [Value]</li>
+                <li><strong>Modularity:</strong> [Value]</li>
+                <li><strong>Connected Components:</strong> [Value]</li>
             </ul>
         </div>
+
+        <!-- Text Analysis -->
+        <div class="text-analysis">
+            <h3>Text Analysis</h3>
+            <p>This section provides insights into the text analysis performed on the network....</p>
+        </div>
+
     </section>
 
+    <!-- Glossary Section -->
+    <section id="glossary">
+        <h2>Glossary</h2>
+        <p>This glossary provides definitions and explanations of terms and abbreviations used in the context of the Dread forum and Dark Web markets.</p>
+        <ul>
+            <li><strong>DNM:</strong> Dark Net Market</li>
+            <li><strong>OP:</strong> Original Poster</li>
+            <li><strong>WTS:</strong> Want to Sell</li>
+            <li><strong>WTT:</strong> Want to Trade</li>
+            <li><strong>WTB:</strong> Want to Buy</li>
+            <li><strong>WTB:</strong> Want to Buy</li>
+            <li><strong>SC:</strong> Scam</li>
+            <li><strong>RIP:</strong> Rest in Peace</li>
+            <li><strong>Dox:</strong> Personal Information Leak</li>
+            <li><strong>P2P:</strong> Peer-to-Peer</li>
+        </ul>
 
 
+
+The glossary is heavily inspired by a glossary obtained through the DNM Bible. The DNM Bible is a guide for navigating the Dark Web markets created by the DarkNetMarkets forum.
 
     
 
@@ -209,17 +244,23 @@
             <h3><strong>Albert F.K. Hansen</strong></h3>
             <p><strong>Education:</strong> Stud.Polyt. Artificial Intelligence and Data, DTU</p>
             <p><strong>Email:</strong> akoha@dtu.com</p>
+            <p> A HugBunter Enjoyer! </p>
         </div>
         <div class="footer-section">
-            <h3><strong>Person 2</strong></h3>
+            <h3><strong>Signe A.T Molsted</strong></h3>
             <p><strong>Education:</strong> Stud.Polyt. Artificial Intelligence and Data, DTU</p>
-            <p><strong>Email:</strong> person2@dtu.com</p>
+            <p><strong>Email:</strong> s221730@dtu.com</p>
+            <p> A samwhiskey Enjoyer! </p>
         </div>
         <div class="footer-section">
-            <h3><strong>Person 3</strong></h3>
+            <h3><strong>Jonas Branner</strong></h3>
             <p><strong>Education:</strong> Stud.Polyt. Artificial Intelligence and Data, DTU</p>
-            <p><strong>Email:</strong> person3@dtu.com</p>
+            <p><strong>Email:</strong> s@dtu.com</p>
         </div>
+        
+        <div class="footer-section">
+        Happy Birthday February the 15th Dread!</div>
+
     </footer>
 </body>
 
