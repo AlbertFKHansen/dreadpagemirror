@@ -110,6 +110,7 @@
     <!-- Navigation Bar -->
     <nav>
         <a href="#dataset-overview">Dataset Overview</a>
+        <a href="#content-analysis">Content Analysis</a>
         <a href="#network-analysis1">User-to-User Network</a>
         <a href="#network-analysis2">User-to-Website Network</a>
         <a href="glossary.html">Glossary</a>
@@ -210,6 +211,30 @@
         </div>
     </section>
 
+    <!-- Content Analysis Section -->
+     <section id="content-analysis">
+        <h2>Content Analysis</h2>
+        <p>This section provides an overview of the content analysis performed on the dataset, outside of the text analysis specific to the two networks.</p>
+        
+        <h3>Most common words</h3>
+
+        word cloud and collocations
+
+        <h3>Top 9 biggest users of all time by degree </h3>
+
+        the actors, their roles, their most commonly used words and their most linked websites
+
+        ('samwhiskey', 2562), ('HugBunter', 2208), ('dontlaugh', 1332), ('Witchman05', 1210), ('Shakybeats', 1077), ('wombat2combat', 740), ('killswitch', 666), ('Paris', 630), ('MJA20WithA3', 599)
+
+        top 9 actors degrees out of all degrees: 6.547316599482854%
+        though they only represent 0.03346944239908963% of the actors in the network
+
+        <h3>Top 9 biggest users in the last 10.000 post and comments by degree</h3>
+
+
+
+    </section>
+
     <!-- User-to-user Network Analysis Section -->
     <section id="network-analysis1">
         <h2>User-to-User Network Analysis</h2>
@@ -225,11 +250,49 @@
         <!-- Network Metrics -->
         <div class="network-metrics">
             <h3>Network Metrics</h3>
+
+            Remember to compare the metrics to something, for example from the book, otherwise the values are meaningless
+
+            the graph is disconnected
+
+            Number of active users: 29878
+            Number of connections: 88563
+
+            Louvain algorithm applied to the graph
+
+            Number of communities: 1413
+
+            Density of the graph: 0.00019842381947254243
+
+            Is the graph connected: False
+            Number of connected components: 1313
+            Number of isolated nodes: 1141
+
+            Average degree: 5.92830845438115
+            Median degree: 2
+            Mode degree: 1
+            Maximum degree: 2562
+            Minimum degree: 0
+            Average strength: 9.864114063859697
+            Median strength: 3
+            Mode strength: 1
+            Maximum strength: 5749
+            Minimum strength: 0
+
+            Average Shortest Path Length: 3.993769034549023
+
+            Modularity of the graph: 0.5131686394882812
+
+            Assortativity of the graph: 0.6267654175212803
+
+            Should we have anything from the random generated graph in here?
+
             <ul>
                 <li><strong>Average Degree:</strong> [Value]</li>
                 <li><strong>Clustering Coefficient:</strong> [Value]</li>
                 <li><strong>Modularity:</strong> [Value]</li>
                 <li><strong>Connected Components:</strong> [Value]</li>
+                <li><strong>Largest component:</strong> The size of the largest component is 28360 users (out of around 30.000 users having ever commneted or posted) </li>
             </ul>
         </div>
 
