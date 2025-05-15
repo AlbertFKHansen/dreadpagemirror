@@ -97,9 +97,9 @@
         <a href="#network-analysis1">User-to-User Network</a>
         <a href="#network-analysis2">User-to-Website Network</a>
         <a href="glossary.html">Glossary</a>
-        <a href="data.zip">Download Dataset</a>
-        <a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=explainer_env/explainer.ipynb">Explainer Notebook</a>
-        <a href="https://gitlab.gbar.dtu.dk/s224234/socsciproject">Repository</a>
+        <a href="data.zip" style="text-decoration: underline; color: blue;">Download Dataset</a>
+        <a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=explainer_env/explainer.ipynb" style="text-decoration: underline; color: blue;">Explainer Notebook</a>
+        <a href="https://gitlab.gbar.dtu.dk/s224234/socsciproject" style="text-decoration: underline; color: blue;">Repository</a>
     </nav>
 
     <!-- Header Section -->
@@ -113,7 +113,7 @@
     </header>
 
 <!-- Introduction -->
-    <section id="dataset-overview">
+    <section>
         <h2>Introduction</h2>
         <div class="introduction">
             <p>The purpose of this project is to analyze and understand the dynamics of the DarkNetMarkets subdread on Dread, one of the largest forums on the dark web. Through network and text analysis, we aim to map the relationships, discussions, and key actors in this hidden corner of the internet.</p>
@@ -138,7 +138,7 @@
             </ul>
             
 
-            <h3>If You Are Interested Further</h3>
+            <h3>If You Are Interested In the Details</h3>
             <p>For a deep dive into the technical details of the analysis, check out the explainer notebook. This notebook contains the code, the tools applied and the data processing steps. The online version automatically creates an environment with all dependencies installed.</p>
             <ul>
                 <li><a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=explainer_env/explainer.ipynb">View Explainer Notebook</a></li>
@@ -150,42 +150,38 @@
             <p>A <a href="glossary.html">glossary</a> is provided. It contains definitions and explanations of terms and abbreviations used in the context of the Dread forum and Dark Web markets.</p>
         </div>
     </section>
-
-
-    <!-- Introduction
-    <section id="dataset-overview">
-        <h2>Introduction</h2>
-        <div class="introduction">
-            <p>The purpose of this project is to analyze and understand.... MERE HER</p>
-            
-            <p>For a deep dive into the technical details of the analysis, check out the explainer notebook. This notebook contains the code, the tools applied and the data processing steps. The online version automatically creates an environment with all dependencies installed.</p>
-            <ul>
-                <li><a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=explainer_env/explainer.ipynb">View Explainer Notebook</a></li>
-            </ul>
-            <p>If you would like to explore the dataset yourself, the data files can be downloaded with the explainer.ipynb, and you can then run the code on your own system.</p>
-            <ul>
-                <li><a href="data.zip" download>Download ZIP</a></li>
-            </ul>
-            <p> A <a href="glossary.html">glossary</a> is provided. It contains definitions and explanations of terms and abbreviations used in the context of the Dread forum and Dark Web markets.</p>
-
-        </div>
-    </section> -->
-
+    
 
     <!-- Dataset Overview Section -->
     <section id="dataset-overview">
         <h2>Dataset Overview</h2>
-        <p>The dataset consists of several files with lists of "urls" and post ids and user ids. You can view these by downlorading the dataset and understand why it was done this way by viewing or downloading dhe explainer notebook. All of the information can be boiled down to 2 files.</p>
-        <p>It took several hours to collect the data, primarily to avoid the webscraper to be detected as a bot. And when we were detected we had to "lay low" for a few hours before scraping again. So the data was collected over the span of three days.</p>
+        <p>This project explores data collected from DarkNetMarkets, an online forum where users discuss various marketplaces on the dark web. Our goal was to analyze the types of posts, the people involved, and the external links being shared within this unique digital environment.</p>
+        <h3>What’s in the Dataset?</h3>
+        <p>The dataset was built over three days (April 19–21, 2025) using a custom-built web scraper. Because we wanted to avoid detection and bans by the forum’s anti-bot measures, we had to slow down scraping when flagged — adding to the challenge. Dread is 7 years old and DarkNetMarkets have existed since day one. This means that we have data dating all the way back to February 15. 2018</p>
+        <p>In the end, the data was condensed into two key files:</p>
         <!-- Dataset Details -->
         <div class="dataset-details">
-            <h4>posts_data_unique.csv</h4>
+            <h3>posts_data_unique.csv</h3>
+            <p>A comprehensive collection of posts and comments shared on the forum.</p>
+          
             <ul>
-                <li><strong>Description:</strong> This is the file containing the entirety of posts and comments from DarkNetMarkets</li>
-                <li><strong>Size:</strong> 64.3 MB</li>
-                <li><strong>Variables:</strong> type, id, parent_id, title, author, content</li>
-                <li><strong>Date:</strong> 19.4.2025 - 21.4.2025</li>
+              <li><strong>Size:</strong> 64.3 MB</li>
+              <li><strong>posts:</strong> - There are 16.116 posts in the dataset</li>
+              <li><strong>posts:</strong> - There are 181.400 comments to posts and other comments in the dataset</li>
+              <li><strong>Date Range:</strong> - The data was collected over three days: April 19-21, 2025</li>
+              <li><strong>Key Fields:</strong>
+                <ul>
+                  <li><code>type</code> – Whether it’s a post or a comment</li>
+                  <li><code>id</code> – A unique identifier for each entry</li>
+                  <li><code>parent_id</code> – The ID of the parent post or comment</li>
+                  <li><code>title</code> – The title of the post (if applicable)</li>
+                  <li><code>author</code> – The username of the poster</li>
+                  <li><code>content</code> – The full text of the post or comment</li>
+                </ul>
+              </li>
             </ul>
+            This file represents the core of the conversation — what users are saying, who’s involved, and how the discussion unfolds.
+
         </div>
         <div class="dataset-details">
             <h4>links_data.csv</h4>
