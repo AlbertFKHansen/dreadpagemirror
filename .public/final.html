@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - Dread</title>
+    <!-- Link to external CSS for styling (Optional) -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Simple navbar styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Navbar container */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Navbar links */
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change color of links on hover */
+        nav a:hover {
+            background-color: #ddd;
+            color: purple;
+        }
+
+        /* Active link (optional) */
+        nav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Add padding to the content below the navbar */
+        section {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: purple;
+            border-bottom: 2px solid purple;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #555;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 50%;
+            padding: 20px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .centered-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            margin: 10px;
+            max-width: 300px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .footer-section p {
+            margin: 5px 0;
+        }
+        
+        .insight-box {
+            background-color: #f0e6ff;
+            border-left: 4px solid purple;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .insight-box h4 {
+            margin-top: 0;
+            color: purple;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .metric-card h4 {
+            margin-top: 0;
+            color: purple;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .column {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+            .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+        }
+        
+        .metric-group {
+            background: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 3px solid #6f42c1;
+        }
+        
+        .metric-list {
+            list-style-type: none;
+            padding-left: 0;
+            line-height: 1.8;
+        }
+        
+        .metric-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .network-properties {
+            background: #f0f6ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#dataset-overview">Dataset Overview</a>
+        <a href="#content-analysis">Content Analysis</a>
+        <a href="#network-analysis1">User Network</a>
+        <a href="#network-analysis2">Marketplace Network</a>
+        <a href="glossary.html">Glossary</a>
+        <a href="data.zip" style="text-decoration: underline; color: lightblue;">Download Dataset</a>
+        <a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=explainer_env/explainer.ipynb" style="text-decoration: underline; color: lightblue;">Explainer Notebook</a>
+        <a href="https://gitlab.gbar.dtu.dk/s224234/socsciproject" style="text-decoration: underline; color: lightblue;">Repository</a>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>A Computational Social Science Study on <span style="color: purple; font-weight: bold;">Dread</span> - The Dark Web Reddit</h1>
+        <p style="font-size: 1.2em;">
+            Mapping the hidden conversations of <span style="color: purple; font-weight: bold;">DarkNetMarkets</span>, 
+            the marketplace discussion hub on the dark web's most popular forum
+        </p>
+    </header>
+
+    <!-- Introduction -->
+    <section>
+        <h2>Introduction</h2>
+        <div class="introduction">
+            <p>The dark web operates differently from the surface web we use daily, with special technology that keeps users and websites anonymous. Unlike regular websites that appear in Google searches, dark web sites can only be found through scraping known sites for new onion addresses or word-of-mouth. This creates a need for central meeting places like <strong>Dread</strong> (a play on "Dark Reddit"), where users gather to share information.</p>
+            
+            <div class="row">
+                <div class="column">
+                    <img src="dread.png" alt="dread" style="width:100%; border: 1px solid #ddd;">
+                    <p style="text-align: center; font-style: italic;">Screenshot of Dread's biggest subforums</p>
+                </div>
+                <div class="column">
+                    <img src="dnm.png" alt="dnm" style="width:100%; border: 1px solid #ddd;">
+                    <p style="text-align: center; font-style: italic;">Screenshot of the DarkNetMarkets subdread's front page</p>
+                </div>
+            </div>
+            
+            <h3>Marketplaces on the Dark Web</h3>
+            <p>Dark web marketplaces function differently than normal e-commerce sites. They often act as middlemen between buyers and vendors:</p>
+            <ul>
+                <li><strong>Marketplaces</strong> provide the platform (like eBay) but often don't sell products themselves</li>
+                <li><strong>Vendors</strong> are the actual sellers who list their products on these platforms</li>
+                <li><strong>Transactions</strong> use cryptocurrency and focus on anonymity</li>
+                <li><strong>Sites</strong> frequently disappear due to law enforcement actions or scams</li>
+            </ul>
+
+            <h3>Our Research Approach</h3>
+            <p>We scraped and analyzed 7 years of conversations from the subdread (a subforum on Dread) DarkNetMarkets, one of the most active communities discussing illicit marketplaces, to understand:</p>
+            <div class="row">
+                <div class="column">
+                    <ul>
+                        <li>Who the most influential users are</li>
+                        <li>Which marketplaces dominate discussions</li>
+                        <li>How communities form around different topics</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li>What language patterns reveal about user behavior</li>
+                        <li>How discussions change after marketplace takedowns</li>
+                        <li>The relationship between the most influential users and markets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>Why This Matters</h4>
+                <p>The dark web remains fragmented and poorly understood by researchers. Gaining insight of these marketplace discussions helps reveal how underground economies operate, how communities adapt to takedowns, and what products dominate these hidden markets.</p>
+            </div>
+            
+            <h3>Explore Further</h3>
+            <p>For those interested in the technical details:</p>
+            <ul>
+                <li><a href="https://mybinder.org/v2/gh/albertfkhansen/dreadpagemirror/main?filepath=explainer_env/explainer.ipynb">View Explainer Notebook</a> - All code and methodology, the online version automatically creates an environment with all dependencies installed</li>
+                <li><a href="data.zip" download>Download Dataset</a> - The raw data for your own analysis</li>
+                <li><a href="glossary.html">Glossary</a> - Key terms and abbreviations used in the context of the Dread forum and Dark Web markets explained</li>
+            </ul>
+        </div>
+    </section>
+    
+
+    <!-- Dataset Overview Section -->
+    <section id="dataset-overview">
+        <h2>Dataset Overview</h2>
+        <p>Our dataset captures conversations from DarkNetMarkets, where users discuss dark web marketplaces, share experiences, and warn about scams. Collected over three days in April 2025, it contains posts dating back to the forum's creation in 2018.</p>
+        
+        <div class="insight-box">
+            <h4>Key Numbers</h4>
+            <p><strong>197,516</strong> total posts and comments from <strong>30,000+</strong> unique active users discussing <strong>90+</strong> different marketplaces</p>
+        </div>
+        
+        <h3>What's in the Data?</h3>
+        <p>The dataset includes every post and comment from the DarkNetMarkets subforum, carefully collected using a custom-built web scraper. To avoid detection and bans by the forum’s anti-bot measures, we had to slow down scraping when flagged — adding to the challenge.</p>
+        
+        <div class="metric-card">
+            <h4>posts_data_unique.csv</h4>
+            <p>The complete conversation history including:</p>
+            <ul>
+                <li><strong>Size:</strong> 64.3 MB</li>
+                <li><strong>16,116</strong> original posts</li>
+                <li><strong>181,400</strong> comments and replies</li>
+                <li><strong>Date Range:</strong> From February 2018 to April 2025</li>
+                <li><strong>Key Fields:</strong>
+                <ul>
+                  <li><code>type</code> – Whether it’s a post or a comment</li>
+                  <li><code>id</code> – A unique identifier for each entry</li>
+                  <li><code>parent_id</code> – The ID of the parent post or comment (used to identify relationships between users)</li>
+                  <li><code>title</code> – The title of the post (if applicable)</li>
+                  <li><code>author</code> – The username of the poster</li>
+                  <li><code>content</code> – The full text of the post or comment</li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+
+    <!-- Content Analysis Section -->
+    <section id="content-analysis">
+        <h2>Content Analysis</h2>
+        <p>By analyzing the language used in posts, we can identify key topics, influential users, and popular marketplaces. We used TF-IDF (a method that identifies important words by their frequency in individual posts compared to their overall frequency) to uncover these patterns.</p>
+        
+        <h3>What Are People Talking About?</h3>
+        <div class="row">
+            <div class="column">
+                <img src="most_common_words.png" style="width:100%; border: 1px solid #ddd;">
+                <p style="text-align: center; font-style: italic;">Common words reflect everyday forum conversations</p>
+            </div>
+            <div class="column">
+                <img src="most_common_words_stopwords_removed.png" style="width:100%; border: 1px solid #ddd;">
+                <p style="text-align: center; font-style: italic;">After removing common words, marketplace-related terms emerge</p>
+            </div>
+        </div>
+        
+        <div class="insight-box">
+            <h4>Key Finding</h4>
+            <p>Discussions focus heavily on practical marketplace concerns: orders, vendors, shipping, and payments (especially cryptocurrency like Bitcoin and Monero). Surprisingly little discussion of specific illegal products.</p>
+        </div>
+        
+        <h3>The Most Influential Users</h3>
+            <p>The top nine users by number of interactions are:</p>
+            <ul>
+                <li><strong>samwhiskey</strong> (2,562 interactions): Longtime moderator of the subdread</li>
+                <li><strong>HugBunter</strong> (2,208 interactions): Founder of Dread, often focuses on technical issues</li>
+                <li><strong>dontlaugh</strong> (1,332 interactions): Current moderator enforcing forum rules</li>
+                <li><strong>Witchman05</strong> (1,210 interactions): Founder of the Versus marketplace, has gone dark the last couple of years</li>
+                <li><strong>Shakybeats</strong> (1,077 interactions): Global moderator of Dread</li>
+                <li><strong>wombat2combat</strong> (740 interactions): Former moderator, has not been active for years</li>
+                <li><strong>killswitch</strong> (666 interactions): Previously moderated the Xanax subdread</li>
+                <li><strong>Paris</strong> (630 interactions): Dread co-founder</li>
+                <li><strong>MJA20WithA3</strong> (599 interactions): Just an active community-member, has not been active for years</li>
+            </ul>
+            <p> Unsurprisingly, multiple of the top users are moderators or founders of Dread. They have a significant impact on the community, with their posts and comments often setting the tone for discussions. 
+                Together, these top users account for nearly 7% of all interactions while representing just 0.03% of users.</p>
+        </div>
+        
+        <img src="top_9_users_links_network.png" alt="Top users network" style="width:60%; border: 1px solid #ddd;" class="centered-image">
+        <p style="text-align: center; font-style: italic;">Network of top users and the marketplaces they mention</p>
+
+        <div class="insight-box">
+    <h4>Top Mentioned Websites by Top Users</h4>
+    <p>The most frequently linked websites by these top users reveal important patterns in dark web discussions:</p>
+    
+    <ul>
+        <li><strong>Dream Market</strong>: The most mentioned marketplace overall (see our <a href="#network-analysis2">Marketplace Network analysis</a>), reflecting its historical dominance</li>
+        <li><strong>DNM Bible</strong>: The official user guide created by subdread staff, serving as a crucial resource for newcomers</li>
+        <li><strong>Archetyp</strong>: A newer marketplace whose staff members (like /u/BigBossChefOfArchetyp and /u/newbieforever2018) actively participate in discussions and maintain good relationships with moderators</li>
+    </ul>
+</div>
+
+<h3>Language Patterns of Top Users</h3>
+
+<img src="top_9_actor_wordclouds.png" alt="User wordclouds" style="width:80%; height: border: 1px solid #ddd;" class="centered-image">
+<p style="text-align: center; font-style: italic;">Distinct language patterns for each top user</p>
+
+<div class="row">
+    <div class="column">
+        <div class="metric-card">
+            <h4>Founders' Focus</h4>
+            <p>The Dread founders discuss technical aspects:</p>
+            <ul>
+                <li><strong>/u/hugbunter</strong>: "data", "tor", "server", "warning" (platform infrastructure)</li>
+                <li><strong>/u/paris</strong>: "network", "captcha", "user" (security and access)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="column">
+        <div class="metric-card">
+            <h4>Moderators' Topics</h4>
+            <p>Moderators focus on practical guidance:</p>
+            <ul>
+                <li><strong>/u/dontlaugh</strong>: "sub", "rules", "dnm" (community governance)</li>
+                <li><strong>/u/Shakebeats</strong>: "tails", "coins", "pgp" (anonymity tools)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="insight-box">
+    <h4>/u/samwhiskey</h4>
+    <p>Samwhiskey's wordcloud stands out with terms like "world", "national", and "holiday". This is because they for many months posted a daily "national day of..." post (including chocolate-related days, hence the "chocolate"). This unique posting pattern makes these terms statistically prominent despite being unrelated to marketplace discussions.</p>
+</div>
+        
+        
+        <h3>Recent Active Users</h3>
+        <p>By mapping the current active top users, we can see how conversations have evolved. This is done using the last 10.000 post and comments.</p>
+        
+        <div class="row">
+            <div class="column">
+                <img src="top_9_recent_users_links_network.png" alt="Recent users network" style="width:80%; border: 1px solid #ddd;">
+                <p style="text-align: center; font-style: italic;">Current active users and their marketplace connections</p>
+            </div>
+            <div class="column">
+                <img src="top_9_recent_actor_wordclouds.png" alt="Recent user wordclouds" style="width:115%; border: 1px solid #ddd;">
+                <p style="text-align: center; font-style: italic;">Language patterns of today's most active participants</p>
+            </div>
+        </div>
+        
+        <p>While established figures like moderators samwhiskey (who is evidently no longer posting a daily "its national day of..." sadface ) and dontlaugh, along with Dread founder HugBunter, continue to play central roles, there are also new influential voices. Archetyp staff member newbieforever2018 has been an active member since the subdread's creation seven years ago, and are now promoting Archetyp while engaging in community discussions. Other active members like Beelzebub, who is known in the community for their ASCII art that appears as unreadable rectangles in their wordcloud, and jedi_knight_errant, are former or current moderators of other subdreads.</p>
+
+        <p>Since the popular marketplaces found in the earlier network: Dream, Empire, and White House Market, have all been seized by law enforcement, current discussions focus on new and currently-running platforms like Archetyp and Abacus, along with the enduring DNM Bible guide. Archetyp's prominence is particularly interested given its staff's active forum participation. It is evident that marketplaces and vendors uses the subdread to promote their products.</p>
+ 
+    </section>
+
+    <!-- User-to-user Network Analysis Section -->
+    <section id="network-analysis1">
+        <h2>User Network: Who Talks to Whom</h2>
+        <p>Mapping how 30,000 users interact reveals hidden communities and influence patterns. Each connection represents a conversation between users.</p>
+        
+            <h3>Network Metrics and Analysis</h3>
+            
+            <p>The user interaction network represents relationships through replies and mentions. This is an <strong>undirected</strong> (mutual connections), <strong>disconnected</strong> (not all users link together), and <strong>weighted</strong> (interaction frequency matters) graph. Communities were detected using the Louvain algorithm, which optimizes modularity by grouping tightly connected nodes.</p>
+
+            <div class="metrics-grid">
+                <div class="metric-group">
+                    <h3>Basic Structure</h3>
+                    <ul class="metric-list">
+                        <li><strong>29,878</strong> active users</li>
+                        <li><strong>88,563</strong> connections between them</li>
+                        <li><strong>101</strong> communities in main component</li>
+                        <li><strong>Density:</strong> 0.0002 (very sparse network)</li>
+                    </ul>
+                </div>
+
+                <div class="metric-group">
+                    <h3>Connectivity</h3>
+                    <ul class="metric-list">
+                        <li><strong>Not fully connected</strong></li>
+                        <li><strong>1,313</strong> separate components</li>
+                        <li><strong>1,141</strong> isolated users</li>
+                    </ul>
+                </div>
+
+                <div class="metric-group">
+                    <h3>Degree Distribution</h3>
+                    <ul class="metric-list">
+                        <li><strong>Average:</strong> 5.9 connections/user</li>
+                        <li><strong>Median:</strong> 2 (half have ≤2 connections)</li>
+                        <li><strong>Maximum:</strong> 2,562 (samwhiskey)</li>
+                    </ul>
+                </div>
+
+                <div class="metric-group">
+                    <h3>Interaction Strength</h3>
+                    <ul class="metric-list">
+                        <li><strong>Average:</strong> 9.9 interactions/user</li>
+                        <li><strong>Median:</strong> 3 (half have ≤3 interactions)</li>
+                        <li><strong>Maximum:</strong> 5,749 (most active pair)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="network-properties">
+                <h3>Key Properties</h3>
+                <ul>
+                    <li><strong>Average path length:</strong> 3.99 (users are ~4 steps apart)</li>
+                    <li><strong>Modularity:</strong> 0.513 (strong community structure)</li>
+                    <li><strong>Assortativity:</strong> 0.627 (active users connect with other active users)</li>
+                </ul>
+            </div>
+        </section>
+
+        
+        <img src="user_network_only_top.png" alt="User network" style="width: 60%; border: 1px solid #ddd;" class="centered-image">
+        <p style="text-align: center; font-style: italic;">The complete user network with top users highlighted</p>
+        
+        <div class="row">
+            <div class="column">
+                <div class="insight-box">
+                    <h4>Community Structure</h4>
+                    <p>The network isn't one big group but many smaller clusters. About 1,141 users are completely isolated, while the largest connected group contains 28,360 users.</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="insight-box">
+                    <h4>Moderator Influence</h4>
+                    <p>Forum moderators appear as central hubs, connecting many users. This gives them outsized influence over conversations and information flow.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h3>What Communities Talk About</h3>
+        <p>Each community develops its own discussion patterns. Contrary to our expectations (when we began this project and had very limited knowledge of the dark web and its marketplaces), communities seem to form around preferred marketplaces rather than product types. 
+            However, since learning that big marketplaces seldom are "specialized" in certain illicit products, but simply middlemen, this makes sense. They therefore often have a wide variety of products, mostly drugs, some also has "service" products such as ddos attacks. And no, weapons and hitmen and such are not common things people buy on the dark web.
+            Below are the most common words (weighted by TF-IDF) for the nine biggest communities by number of users.</p>
+        
+        <img src="top_9_communities_wordclouds.png" alt="Community wordclouds" style="width: 80%; border: 1px solid #ddd;" class="centered-image">
+        <p style="text-align: center; font-style: italic;">Distinct language patterns for the largest communities</p>
+    
+            <p>The largest identified community (Community 1 with 5,259 users) serves as the general discussion hub of the subdread, containing both moderators like /u/samwhiskey and /u/dontlaugh as well as the most active users. Characterized by terms like "package," "orders," and "mail," this group primarily deals with practical marketplace issues - users troubleshooting delivery problems, discussing seized shipments, and exchanging advice about drug purchases. 
+            <p>The second-largest community (Community 41 with 4,556 users) focuses on technical aspects of dark web transactions, with frequent mentions of PGP encryption ("pgp"), cryptocurrency wallets ("wallet", "xmr" for Monero), and account security, along with preferred marketplaces AlphaBay and Versus. </p>
+            <p>Many of the communities formed around specific preferred marketplaces, indicating customer loyalty. Community 4 seemed to be the Empire marketplace hub, while Community 6 the Dream market hub, and Community 37 primarily engaged with Bohemia market.</p>
+            <p>Interestingly, one of the smaller but distinctive communities (Community 7 with just 192 members) stands out for its unusually social atmosphere - dominated by words like "friend" and "friends" - despite their association with the now-defunct Monopoly marketplace (seized in 2023).</p> 
+    </section>
+
+    <!-- User-to-Website Analysis Section -->
+    <section id="network-analysis2">
+        <h2>Marketplace Network: Users and Their Preferred Sites</h2>
+        <p>This network connects users to the marketplaces they mention or link to, revealing loyalty patterns and how communities cluster around specific sites.</p>
+        
+    <h3>Network Metrics and Analysis</h3>
+        
+        <p>This <strong>bipartite network</strong> (containing both users and marketplaces as nodes) reveals how users cluster around specific dark web platforms. This is an <strong>undirected </strong> (mutual connections), and <strong>weighted </strong> (interaction frequency matters) graph. Communities were detected using the Louvain algorithm, which optimizes modularity by grouping tightly connected nodes.</p>
+
+        <div class="metrics-grid">
+            <div class="metric-group">
+                <h3>Basic Structure</h3>
+                <ul class="metric-list">
+                    <li><strong>18,051</strong> marketplace mentions</li>
+                    <li><strong>7,593</strong> users discussing websites</li>
+                    <li><strong>15</strong> distinct communities</li>
+                    <li><strong>Density:</strong> 0.0004 (sparse connections)</li>
+                </ul>
+            </div>
+
+            <div class="metric-group">
+                <h3>Connectivity</h3>
+                <ul class="metric-list">
+                    <li><strong>Not fully connected</strong></li>
+                    <li><strong>5</strong> separate components</li>
+                    <li><strong>7,584</strong> users in largest component</li>
+                    <li>No isolated nodes (by design)</li>
+                </ul>
+            </div>
+
+            <div class="metric-group">
+                <h3>Top Marketplaces</h3>
+                <ol class="metric-list">
+                    <li><strong>Dream</strong> (2,246 mentions) (shutdown)</li>
+                    <li><strong>Empire</strong> (1,825) (shutdown)</li>
+                    <li><strong>AlphaBay</strong> (699) (shutdown)</li>
+                    <li><strong>WSM</strong> (683) (shutdown)</li>
+                    <li><strong>Bohemia</strong> (608) (shutdown)</li>
+                    <li><strong>White House Market</strong> (606) (active)</li>
+                    <li><strong>dark.fail</strong> (493) (active)</li>
+                    <li><strong>Archetyp</strong> (458) (active)</li>
+                    <li><strong>Silk Road</strong> (440) (shutdown)</li>
+                </ol>
+            </div>
+        </div>
+        
+        <img src="U2Lpartition.png" alt="Marketplace network" style="width: 60%; border: 1px solid #ddd;" class="centered-image">
+        <p style="text-align: center; font-style: italic;">How users cluster around different marketplaces</p>
+        
+        <div class="insight-box">
+            <h4>Marketplace Loyalty</h4>
+            <p>Users show strong loyalty to specific marketplaces, forming tight-knit groups. These communities persist even after markets are shut down.</p>
+        </div>
+        
+        <h3>Marketplace Communities</h3>
+        <p>Each community's discussions reveal why users prefer certain markets:</p>
+        
+        <img src="top_9_communities_from_U2L_wordclouds.png" alt="Marketplace wordclouds" style="width: 80%; border: 1px solid #ddd;" class="centered-image">
+        <p style="text-align: center; font-style: italic;">Language patterns of different marketplace communities</p>
+
+        <p>
+            The network analysis revealed distinct user communities clustered around specific marketplaces, with a clear divide between defunct and active platforms. The largest community (Community 7, 1,884 users) primarily discussed now-seized markets Dream and WSM, while the second-largest (Community 14, 1,196 users) focused on Empire market. Notably, Community 9 - which includes prominent moderator /u/samwhiskey - shows loyalty to currently active platforms Archetyp and Abacus. Other significant clusters include Community 8 (centered on WHM, Versus, and Monopoly), Community 3 (Darkode and darkfox users), and Community 6 (Bohemia adherents). The tech-focused Community 10 stands apart, where moderators dontlaugh and shakybeats participate in discussions about security tools like the DNM bible, Whonix, Tails, and Tor rather than specific marketplaces. The smallest of these major groups (Community 5) uniquely combines discussion of Cryptonia marketplace with warnings about Apollo's 2020 exit scam, while Community 9 maintains loyalty to dark.fail and Genesis market. This structure demonstrates how marketplace affiliations persist even after platform seizures, with only a few communities shifting focus to currently operational alternatives.
+        </p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-section">
+            <h3><strong>Albert F.K. Hansen</strong></h3>
+            <p><strong>Education:</strong> Stud.Polyt. Artificial Intelligence and Data, DTU</p>
+            <p><strong>Email:</strong> akoha@dtu.com</p>
+            <p>A HugBunter Enjoyer!</p>
+        </div>
+        <div class="footer-section">
+            <h3><strong>Signe A.T. Molsted</strong></h3>
+            <p><strong>Education:</strong> Stud.Polyt. Artificial Intelligence and Data, DTU</p>
+            <p><strong>Email:</strong> s221730@dtu.com</p>
+            <p>A samwhiskey Fan!</p>
+        </div>
+        <div class="footer-section">
+            <h3><strong>Jonas Branner</strong></h3>
+            <p><strong>Education:</strong> Stud.Polyt. Artificial Intelligence and Data, DTU</p>
+            <p><strong>Email:</strong> s@dtu.com</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3><strong><span style="color: #bb99ff;">Dread</span>!</strong></h3>
+            <div>Happy 7 years Birthday February 15th!</div>
+        </div>
+    </footer>
+</body>
+</html>

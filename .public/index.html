@@ -137,7 +137,8 @@
             
             <h3>Understanding the Dark Web</h3>
             <p>The dark web operates differently from the surface web we use daily. Websites use onion routing (Tor protocol) to hide their location and identity, making traditional search engines ineffective. Unlike Google's domain-based indexing, dark web content can only be discovered through three main methods: brute forcing addresses, user submissions, or scraping known sites for new onion keys. This opaque environment creates a need for centralized forums like Dread (likely named as a play on "Dark Reddit") where users can share information and links.</p>
-            
+            An explanation of the marketplaces on the dark web and the difference between vendors and marketplaces (how marketplaces often are middlemen)
+
             <h3>What We Did</h3>
             <p>We scraped and analyzed the DarkNetMarkets subdread on Dread, one of the most active communities discussing illicit marketplaces. Our project includes:</p>
             <ul>
@@ -214,37 +215,113 @@
     <!-- Content Analysis Section -->
      <section id="content-analysis">
         <h2>Content Analysis</h2>
-        <p>This section provides an overview of the content analysis performed on the dataset, outside of the text analysis specific to the two networks.</p>
+        <p>This section provides an overview of the content analysis performed on the dataset, outside of the text analysis specific to the two networks.
+            the most used words for users / communities have been found using tf_idf, a little explanation of tf-idf (and link to wiki or whatever) used for all the textanalysis and wordclouds
+            all the top users have been found by sorting for top degree, meaning the ones that have replied/talked to most users
+            the most talked about websites have been found by sorting for most linked or mentioned websites (with multiple aliases, for example the DNM bible is also called just DNM or Darknet Market Bible)
+
+
+        </p>
         
         <h3>Most common words</h3>
 
-        word cloud and collocations
+        
+        The most common words used on the subdread is obviously informal / everyday language since it is a forum
+        This is evident in the wordcloud on the left below.
+        After removing stopwords, the common discussed themes on the subdread is apparent. This unsurpringsly surrounds market, vendors, orders, addressesa long with causual everday words as "lol", "shit" and "thanks"
+         <div class="row">
+                <div class="column">
+                    <img src="most_common_words.png" style="width:100%">
+                    <p>Most commonly used words before removing stopwords.</p>
+                </div>
+                <div class="column">
+                    <img src="most_common_words_stopwords_removed.png" style="width:100%">
+                    <p>Most commonly used words after remving stopwords.</p>
+                </div>
+            </div>
+
 
         <h3>Top 9 biggest users of all time by degree </h3>
 
         the actors, their roles, their most commonly used words and their most linked websites
 
-        ('samwhiskey', 2562), ('HugBunter', 2208), ('dontlaugh', 1332), ('Witchman05', 1210), ('Shakybeats', 1077), ('wombat2combat', 740), ('killswitch', 666), ('Paris', 630), ('MJA20WithA3', 599)
+        their roles have been found by manual inspection of the dataset:
+
+        ('samwhiskey', 2562), a longtime moderator of the subdread
+        
+        ('HugBunter', 2208), Founder of Dread
+        
+        ('dontlaugh', 1332), current moderator of the subdread
+        
+        ('Witchman05', 1210), Founder of the market Versus (gone dark since the last coupe of years)
+        
+        ('Shakybeats', 1077), global moderator of dread
+        
+        ('wombat2combat', 740), old moderator of the subdread (havnt been active for years)
+        
+        ('killswitch', 666), an old moderator of the subdread /d/Xanax, now just chilling
+        
+        ('Paris', 630), Cofounder of Dread
+        
+        ('MJA20WithA3', 599), seems to just be a user, has not been active for a years
 
         top 9 actors degrees out of all degrees: 6.547316599482854%
         though they only represent 0.03346944239908963% of the actors in the network
 
+        <div class="row">
+                <div class="column">
+                    <img src="top_9_users_links_network.png" alt="top_9_users_links_network" style="width:100%">
+                    <p>Network of the top 9 users of all time by degree along with the websites they have mentioned.</p>
+                </div>
+                <div class="column">
+                    <img src="top_9_actor_wordclouds.png" alt="top_9_actor_wordclouds" style="width:100%">
+                    <p>Wordclouds of the top 9 users of all time by degree. The words are the most common words used by the users in their posts and comments weighted using TF-IDF.</p>
+                </div>
+            </div>
+
+
+        the most linked / mentioned websites by the top 9 users of all time by degree are dream (which makes sense, it is the most linked website overall see U2L section (crosslink)), the DNM bible which is userguide made by the staff of the subdread, so that also makes sense, and Archetyp, which is a newer marketplace whose founders/staff are very active on the subdread (/u/BigBossChefOfArchetyp and /u/newbieforever2018), both of which seem to have a good relationship with the moderators, so it makes sense that they would push that website
+
+        The wordclouds are pretty much as expected. the two founders /u/hugbunter and /u/paris often answers questions regarding privacy, servers, data, general more technical things regarding dread which can be seen in the words "data","tor","access","issues","server","warning" from hugbunter, and "network","information","captcha" (regarding the captcha's you have to do to enter dread, supposedly pretty hard),"user" from Paris
+        the mods mostly gives out advice and answers question in regards to ordering, website, the subdread rules and so forth, therefore words such as "sub","rules","dnm" (DNM bible as described above a userguide) from dontlaugh, "tails" (An amnesiac, bootable operating system with a focus on anonymity), "coins" (cryptocurrency used on the dark web for purchasing (mostly bitcoin and monero)), "pgp" (pretty good privacy),"help". The more unusual words in /u/samwhiskey's wordclouds: "world","national","holiday" is because they for quite a while posted daily "it's national day of..." posts (and yes multiple os those were chocolate related hence the word "chocolate" in the cloud). They of course also write plenty of other stuff and answers questions like the rest of the mods but the unusual and repeated use of the other words (compared to the rest of the users) means the TF-IDF will weight it highly
+
+        these users have a big influence on the subdread and the users and therefore also the illicit marketplaces on the dark web blablabla
+
         <h3>Top 9 biggest users in the last 10.000 post and comments by degree</h3>
 
+        the actors, their roles, their most commonly used words and their most linked websites
 
+        many of these more recent active users seem to be simply interested and active community members, of course we still have samwhiskey, dontlaugh and hugbunter as most active users
+        as mentioned earlier, /u/newbieforever2018 is a staff member of Archetyp and they have been an ctive member of the subdread since its beginning 7 years ago. /u/belzebub, newbieforever2018 and BlackCell are/ have all been moderators of othersubdreads on dread
+
+        [('samwhiskey', 359), ('jedi_knight_errant', 181), ('newbieforever2018', 120), ('MrBacon420', 109), ('HugBunter', 100), ('Beelzebub', 91), ('dontlaugh', 90), ('BlackCell', 79), ('HorkyPorky', 78)]
+
+         <div class="row">
+                <div class="column">
+                    <img src="top_9_recent_users_links_network.png" alt="top_9_recent_link" style="width:100%">
+                    <p>Network of the top 9 users in the last 10.000 post and comments by degree along with the websites they have mentioned.</p>
+                </div>
+                <div class="column">
+                    <img src="top_9_recent_actor_wordclouds.png" alt="top_9_recent" style="width:100%">
+                    <p>Wordclouds of the top 9 users in the last 10.000 post and comments by degree. The words are the most common words used by the users in their posts and comments weighted using TF-IDF.</p>
+                </div>
+            </div>
+
+        the most linked / mentioned websites of the top 9 recent users are archetyp, abacus market and the DNM bible. This makes sense as multiple of the big market places from earlier have been shut down / seized by le (lae enforcement) like dream, empire and WSM, and these are still up (bc they are newer except the bible that is a guide)
+        in the word clouds it is evident that samwhiskey has not been doing his "it's national day of..." posts for a while. newbieforever2018's connection and promoting of achetyp is also evident, and belzebub is known in the community for their ascii art and weird fonts (explanation and link to wiki) which is evident by the rectangles that symbolizes characters/symbols that cant be interpreted by the word cloud
 
     </section>
 
     <!-- User-to-user Network Analysis Section -->
     <section id="network-analysis1">
         <h2>User-to-User Network Analysis</h2>
-        <p>This section covers the network analysis conducted on the dataset, including the relationships and structure identified through the data.</p>
-        
+        <p>This section covers the network analysis of the user-to-user network of every single user that have ever posted or commented something on the subdread (30.000 or so)</p>
+        the graph is undirected and weighted
         <!-- Network Visualization -->
         <div class="network-visualization">
             <h3>Network Visualization</h3>
-            <p>This visualization represents the connections and relationships within the dataset, illustrating the structure of the network.</p>
-            <img src="path/to/network-graph.png" alt="Network Graph" class="network-image">
+            <p>This visualization represents the connections and relationships within the dataset, illustrating the structure of the network. Every node is a user and to users are linked of they have commented on the others comment/post. The ten biggest users, as mentioned earlier in the content analyzing section (crosslink) has been marked. /u/printerpam is the tenth biggest user by degree and was not included in the earlier analysis. They are a former vendor. The communities has been found using Louvain algorithm (crosspost to explanation of louvain under content analyzing).</p>
+            <img src="user_network_only_top.png" alt="Network Graph" class="network-image" style="width: 90%;">
         </div>
 
         <!-- Network Metrics -->
@@ -260,7 +337,7 @@
 
             Louvain algorithm applied to the graph
 
-            Number of communities: 1413
+            Number of communities in the largest component: 101
 
             Density of the graph: 0.00019842381947254243
 
@@ -287,19 +364,18 @@
 
             Should we have anything from the random generated graph in here?
 
-            <ul>
-                <li><strong>Average Degree:</strong> [Value]</li>
-                <li><strong>Clustering Coefficient:</strong> [Value]</li>
-                <li><strong>Modularity:</strong> [Value]</li>
-                <li><strong>Connected Components:</strong> [Value]</li>
-                <li><strong>Largest component:</strong> The size of the largest component is 28360 users (out of around 30.000 users having ever commneted or posted) </li>
-            </ul>
+            The size of the largest component is 28360 users (out of around 30.000 users having ever commneted or posted)
         </div>
+
 
         <!-- Text Analysis -->
         <div class="text-analysis">
             <h3>Text Analysis</h3>
-            <p>This section provides insights into the text analysis performed on the network....</p>
+            <p>This section provides insights into the text analysis performed on the communities of the user-to-user network found using the louvain algorithm.... this gives an indication of how they communities are build up, who talks to who, and what are their common topics. A wordcloud has been vizualized for the top 0 communities by number of users, using tf-idf. Before starting this project, with the very limited knowledge of the dark web and its communities and marketplaces, we expected the communities to form around the users' "favorite" illicit marketplace items, such as one community around LSD, one around guns, one around crypto and so forth. However, after applying the td-idf text analysis to use as an indication of the community topics, it was found that multiple of them seem to be formed around a "favorite" marketplace, such as community 4 around Empire, community 6 around Dream and community 37 around bohemia. After reasearching and learning more about how marketplaces on the dark web often operates, this makes sense. The big marketplaces are seldom "specialized" in certain illicit products, they are simply middlemen through who vendors sell products. They therefore often have a wide variety of products, mostly all kinds of drugs, some also has "service" products such as ddos attacks and so forth. And no, weapons and hitmen and such are not common things people buy on the dark web.</p>
+            <img src="top_9_communities_wordclouds.png" alt="wordcloud top 9 com" class="network-image" style="width: 90%;">
+            <p>Wordclouds of the top 9 communities by number of users. The words are the most common words used by the users in their posts and comments, weighted using TF-IDF.</p>
+
+            community 1, the biggest community with 5259 users, is a community that seems to be formed around the "general" topics of the subdread, it also the community the moderaators and top active users /u/samwhiskey and /u/dontlaugh are in. words like "package", "orders", "drugs", "mail" indicates the general topics, mostly people asking for help with their orders, or stuck / seized packages on so forth. The next biggest community, community 41 with 4556 users, centers more technical aspects of buying from illicit marketplaces, such as pgp (pretty good privacy for anonymity), wallet (cryptocurrency wallets needed to buy), "account" (needed to access most marketplaces), "xmr" (abbreviation for monero, a cryptocurrency), as well as a few "favorite" marketplaces: AlphaBay and Versus. Another more unusual community is community 7 with 192 with the words "friend" and "friends". apparently they are very friendly over there. Their "favorite" marketplace is Monopoly (seized in 2023)
         </div>
 
     </section>
@@ -307,31 +383,50 @@
     <!-- User-to-Website Analysis Section -->
     <section id="network-analysis2">
         <h2>User-to-Website Analysis</h2>
-        <p>This section covers the network analysis conducted on the dataset, including the relationships and structure identified through the data.</p>
-        
+        <p>This section covers the network analysis of the user-to-website analysis. The network is build by every mention of marketplace, including links and aliases, from the users. The graph is (what is it called when there are two types of nodes in a graph? here users and marketplaces). From this network the most popular (most discussed) marketplaces as well as the loyality / segmentation of the users relationship to those marketplaces is indicated. The communities has been found using Louvain algorithm. </p>
+        the graph is undirected and weighted
         <!-- Network Visualization -->
         <div class="network-visualization">
             <h3>Network Visualization</h3>
             <p>This visualization represents the connections and relationships within the dataset, illustrating the structure of the network.</p>
-            <img src="path/to/network-graph.png" alt="Network Graph" class="network-image">
+            <img src="U2Lpartition.png" alt="Network Graph" class="network-image" style="width: 90%;">
+            we need some more on what the communities indicate
+            clearly there is some loyalty in the users
         </div>
 
         <!-- Network Metrics -->
         <div class="network-metrics">
             <h3>Network Metrics</h3>
-            <ul>
-                <li><strong>Average Degree:</strong> [Value]</li>
-                <li><strong>Clustering Coefficient:</strong> [Value]</li>
-                <li><strong>Modularity:</strong> [Value]</li>
-                <li><strong>Connected Components:</strong> [Value]</li>
-            </ul>
+
+            18051 total mentions websites (links and aliases)
+
+            7593 users have mentioned a website
+
+            The size of the largest component is 7584
+            Is the graph connected: False
+            Number of connected components: 5
+            no isolated nodes obviously bc of the way the network is set up
+
+            15 communities in the largest component
+
+            Density of the graph: 0.0004378756946333988
+
+            Top 9 websites by degree: [('Dream', 2246), ('Empire', 1825), ('AlphaBay', 699), ('WSM', 683), ('Bohemia', 608), ('White House Market', 606), ('dark.fail', 493), ('Archetyp', 458), ('silk road', 440)]
+
+            
         </div>
 
         <!-- Text Analysis -->
         <div class="text-analysis">
             <h3>Text Analysis</h3>
-            <p>This section provides insights into the text analysis performed on the network....</p>
+            <p>This section provides insights into the text analysis performed on the user-to-website network....</p>
+            The biggest community, community 7 with 1884 users, "favorites" are Dream and WSM (both seized now). the second biggest, community 14 with 1196 users, "favorite" is empire (also seized), community 9 is Archetyp and Abacus (still up, this is the one the moderator and most active user /u/samwhiskey is in), then community 8 tih VHM, Versus and Monopoly (WHM still up), community 3 with Darkode and darkfox, community 6 with bohemia (seized), community 5 with cryptonia (crypto) and apollon (pulled an exit scam and left in 2020), community 10 with the DNM bible and whonix, but otherwise talks about tails and tor (protection software), this is the one the moderators dontlaugh and shakybeats are in. the last community, the ninth biggest, prefers dark.fail and genesis.
+            we need to research and find out if the websites in the same communties are more alike each other than the others? maybe the have same owners?
+
+            <img src="top_9_communities_from_U2L_wordclouds.png" alt="wordcloud top 9 U2L" class="network-image" style="width: 90%;">
+            <p>Wordclouds of the top 9 communities in the user-to-website network by number of users. The words are the most common words used by the users in their posts and comments, weighted using TF-IDF.</p>
         </div>
+        what does this tell us blablabla and why is it relevant blablabla
 
     </section>
 
@@ -348,10 +443,10 @@
             <p> A HugBunter Enjoyer! </p>
         </div>
         <div class="footer-section">
-            <h3><strong>Signe A.T Molsted</strong></h3>
+            <h3><strong>Signe A.T. Molsted</strong></h3>
             <p><strong>Education:</strong> Stud.Polyt. Artificial Intelligence and Data, DTU</p>
             <p><strong>Email:</strong> s221730@dtu.com</p>
-            <p> A samwhiskey Enjoyer! </p>
+            <p> A samwhiskey Fan! </p>
         </div>
         <div class="footer-section">
             <h3><strong>Jonas Branner</strong></h3>
